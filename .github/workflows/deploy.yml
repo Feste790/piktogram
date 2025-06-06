@@ -12,8 +12,9 @@ jobs:
       - name: Deploy to server
         uses: appleboy/ssh-action@master
         with:
-          host: 192.168.18.77
+          host: 77.92.58.158
           username: karol
+          port: 2222
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /piktogram
