@@ -1,0 +1,26 @@
+# Ignoruj foldery virtual environment Pythona
+venv/
+__pycache__/
+*.pyc
+
+# Ignoruj node_modules (jeśli używasz pełnego Reacta z npm)
+node_modules/
+
+# Ignoruj pliki konfiguracyjne środowiska
+.env
+*.env
+
+# Ignoruj pliki tymczasowe i logi
+*.log
+*.tmp
+
+# Ignoruj pliki Dockera (jeśli nie są w repozytorium)
+docker-compose.override.yml
+Dockerfile.*
+
+# Ignoruj pliki IDE (np. VS Code)
+.vscode/
+*.code-workspace
+
+# Ignoruj wygenerowane pliki bazy danych (jeśli lokalne)
+*.sqlite
