@@ -17,6 +17,6 @@ jobs:
           port: 2222
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /piktogram
+            cd /home/admin/piktogram
             git pull origin main
             sudo docker-compose up --build -d
