@@ -22,7 +22,7 @@ services:
     expose:
       - "8001"
     environment:
-      - DATABASE_URL=postgresql://app:admin@db:5432/app
+      - DATABASE_URL=postgresql://admin:admin@db:5432/app
     depends_on:
       - db
     deploy:
@@ -61,4 +61,4 @@ services:
 volumes:
   postgres_data:
 networks:
-  - piktogram-network
+  piktogram-network:
