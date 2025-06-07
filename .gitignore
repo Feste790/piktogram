@@ -21,6 +21,7 @@ Dockerfile.*
 # Ignoruj pliki IDE (np. VS Code)
 .vscode/
 *.code-workspace
+.vs/
 
 # Ignoruj wygenerowane pliki bazy danych (jeśli lokalne)
 *.sqlite
