@@ -5,6 +5,7 @@ __pycache__/
 
 # Ignoruj node_modules (jeśli używasz pełnego Reacta z npm)
 node_modules/
+build/
 
 # Ignoruj pliki konfiguracyjne środowiska
 .env
