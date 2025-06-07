@@ -2,6 +2,8 @@ version: '3.8'
 services:
   db:
     image: postgres:16
+    networks:
+      - piktogram-network
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin
@@ -15,8 +17,10 @@ services:
           memory: 4G
   backend:
     build: ./backend
-    ports:
-      - "8001:8001"
+    networks:
+      - piktogram-network
+    expose:
+      - "8001"
     environment:
       - DATABASE_URL=postgresql://app:admin@db:5432/app
     depends_on:
@@ -27,13 +31,34 @@ services:
           cpus: '1.0'
           memory: 2G
   frontend:
-    build: ./frontend
-    ports:
-      - "8000:80"
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    networks:
+      - piktogram-network
+    expose:
+      - "80"
+    volumes:
+      - ./frontend/build:/app/build
+    command: ["npm", "run", "build"]  # Buduje aplikację przy starcie
     deploy:
       resources:
         limits:
           cpus: '0.5'
           memory: 1G
+  nginx:
+    build: ./nginx
+    networks:
+      - piktogram-network
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./frontend/build:/app/build  # Montuje build do Nginx
+    depends_on:
+      - backend
+      - frontend
 volumes:
   postgres_data:
+networks:
+  - piktogram-network
