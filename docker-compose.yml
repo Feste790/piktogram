@@ -47,7 +47,7 @@ services:
           cpus: '0.5'
           memory: 1G
   nginx:
-    build: ./nginx
+    image: ./nginx
     networks:
       - piktogram-network
     ports:
