@@ -40,7 +40,7 @@ services:
       - "80"
     volumes:
       - ./frontend/build:/app/build
-   # command: ["npx", "serve", "-s", "build"]  # Uruchamia serwer statyczny po buildzie
+    command: ["npx", "serve", "-s", "build"]  # Uruchamia serwer statyczny po buildzie
     deploy:
       resources:
         limits:
