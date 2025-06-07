@@ -31,7 +31,7 @@ services:
           cpus: '1.0'
           memory: 2G
   frontend:
-    build: 
+    build:
       context: ./frontend
       dockerfile: Dockerfile
     networks:
@@ -40,25 +40,25 @@ services:
       - "80"
     volumes:
       - ./frontend/build:/app/build
-    command: ["npm", "run", "build"]  # Buduje aplikację przy starcie
+    command: ["npx", "serve", "-s", "build"]  # Uruchamia serwer statyczny po buildzie
     deploy:
       resources:
         limits:
           cpus: '0.5'
           memory: 1G
   nginx:
-    image: ./nginx
+    build: ./nginx
     networks:
       - piktogram-network
     ports:
       - "80:80"
     volumes:
       - ./nginx:/etc/nginx/conf.d
-      - ./frontend/build:/app/build  # Montuje build do Nginx
+      - ./frontend/build:/app/build
     depends_on:
       - backend
       - frontend
 volumes:
   postgres_data:
 networks:
-  piktogram-network:
+  piktogram-network
