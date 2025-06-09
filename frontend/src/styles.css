@@ -1,0 +1,95 @@
+/*===--- HEADER ---===*/
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: lawngreen;
+    background: linear-gradient(90deg, #626262 0%, #424242 40%, #161616 100%);
+}
+
+.header h1{
+    font-size: 40px;
+}
+
+    .header .logo {
+        font-size: 24px;
+        font-weight: bold;
+        height: 90px;
+        width: 200px;
+        background-color: transparent;
+    }
+
+.header .buttons{
+    display: flex;
+    gap: 10px;
+}
+
+.header .button{
+    padding: 5px 15px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.header .button:hover {
+    background-color: #777;
+}
+
+/*===--- MAIN CONTENT ---===*/
+
+.main-background {
+
+}
+
+.main-content {
+    padding: 20px;
+    min-height: calc(100vh - 60px);
+    background: linear-gradient(90deg, #626262 0%, #424242 40%, #161616 100%);
+    color: lawngreen;
+}
+
+.camera-window{
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    background-color: #f0f0f0;
+    border: 2px solid #333;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+}
+
+.buttons-container{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.buttons-container button{
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons.buttons-container button:hover{
+    background-color: 45a049;
+}
+
+.text-display{
+    font-size: 18px;
+    line-height: 1.5;
+    color: #333;
+    color: greenyellow;
+}
+
+
+
