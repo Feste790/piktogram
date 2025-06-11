@@ -9,6 +9,7 @@ function App() {
 	return (
 		<BrowserRouter>
 			<Header />
+			<Home />
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/upload" element={<Home />} />
