@@ -7,7 +7,7 @@ COPY package-lock.json ./
 RUN npm install --no-optional
 
 COPY . .
-RUN ln -sf src/main.jsx src/index.jsx
+RUN ln -sf src/main.jsx src/index.js
 RUN npm run build
 
 

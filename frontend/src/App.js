@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 import './styles.css';
-import Header from './Header.jsx';
-import Home from './Home.jsx';
+import Header from './Header';
+import Home from './Home';
 
 function App() {
 	return (
