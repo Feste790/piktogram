@@ -9,7 +9,7 @@ const Home = () => {
 
     const handleRecognize = async () => {
         try {
-            const response = await fetch('http://backend:8001/api', {
+            const response = await fetch('http://localhost/api', {
                 method: 'GET',
             });
             if (!response.ok) {
