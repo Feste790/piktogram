@@ -1,30 +1,40 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+// Usuniêto Link, bo nie jest u¿ywany
+// import { Link } from 'react-router-dom';
 import './styles.css';
 
 const Home = () => {
-
     const [result, setResult] = useState(null);
+    const [error, setError] = useState(null);
 
-    const handleRecognize = () => {
-        fetch('http://localhost/api', {
-            method: "GET"
-        })
-            .then(response => response.json())
-            .then(data => setResult(data.test))
+    const handleRecognize = async () => {
+        try {
+            const response = await fetch('http://backend:8001/api', {
+                method: 'GET',
+            });
+            if (!response.ok) {
+                throw new Error(`B³¹d: ${response.status}`);
+            }
+            const data = await response.json();
+            setResult(data.test || data.result || 'Brak danych'); // Dopasowanie do ró¿nych struktur odpowiedzi
+            setError(null);
+        } catch (err) {
+            setError(err.message);
+            setResult(null);
+        }
     };
 
     return (
         <div className="main-background">
             <div className="main-content">
                 <div className="text-display">
-                    <p>{result || 'TEST Tekstu'}</p>
+                    <p>{error || result || 'TEST Tekstu'}</p>
                 </div>
                 <div className="camera-window">
                     Kamera tu
                 </div>
-                <div className="buttons-container"> 
-                    <button >Rozpoznaj</button>
+                <div className="buttons-container">
+                    <button onClick={handleRecognize}>Rozpoznaj</button>
                 </div>
             </div>
         </div>
