@@ -19,6 +19,6 @@ jobs:
           script: |
             cd ~/piktogram
             git pull origin main
-            docker-compose down --rmi all || true
-            docker-compose up --build -d
+           # docker-compose down --rmi all || true
+           # docker-compose up --build -d
             
