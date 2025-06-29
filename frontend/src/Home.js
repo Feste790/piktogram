@@ -34,7 +34,7 @@ const Home = () => {
                     <img src="http://192.168.18.77:8000/stream" width="640" height="480" alt="Stream z kamery" />
                 </div>
                 <div className="buttons-container">
-                    <button onClick={handleRecognize}>Rozpoznaj</button>
+                    <button onClick={handleRecognize}>Rozpoznaj!</button>
                 </div>
             </div>
         </div>
