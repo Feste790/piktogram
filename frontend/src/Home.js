@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-// Usuniêto Link, bo nie jest u¿ywany
-// import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import './styles.css';
 
 const Home = () => {
@@ -8,14 +6,11 @@ const Home = () => {
     const [result, setResult] = useState(null);
     const [error, setError] = useState(null);
 
+    // Funkcja do pobierania wyników rozpoznawania
     const handleRecognize = async () => {
         try {
-            const response = await fetch('http://192.168.18.77/api', {
-                method: 'GET',
-            });
-            if (!response.ok) {
-                throw new Error(`B³¹d: ${response.status}`);
-            }
+            const response = await fetch('http://192.168.18.77/api', { method: 'GET' });
+            if (!response.ok) throw new Error(`B³¹d: ${response.status}`);
             const data = await response.json();
             setResult(data.test || data.result || 'Brak danych');
             setError(null);
@@ -25,13 +20,14 @@ const Home = () => {
         }
     };
 
+    // Pobieranie statystyk z Raspberry Pi co 2 sekundy
     useEffect(() => {
         const interval = setInterval(async () => {
             try {
                 const response = await fetch('http://192.168.18.102:5001/info');
                 if (!response.ok) throw new Error(`B³¹d: ${response.status}`);
                 const data = await response.json();
-                setStats(data);
+                setStats(data); // Zak³adam, ¿e JSON ma pole "cpu_temp" (zmieñ na "CPU_Temp", jeœli pasuje)
                 setError(null);
             } catch (err) {
                 setError(err.message);
@@ -40,7 +36,7 @@ const Home = () => {
         return () => clearInterval(interval);
     }, []);
 
-return (
+    return (
         <div className="main-background">
             <div className="main-content">
                 <div className="text-display">
@@ -55,7 +51,7 @@ return (
                 <div className="text-display">
                     {error ? <p>Error: {error}</p> : stats ? (
                         <div>
-                            <p>Temperatura CPU: {stats.CPU_Temp || 'Brak danych'}</p> {/* Dopasuj klucz JSON */}
+                            <p>Temperatura CPU: {stats.cpu_temp || 'Brak danych'}</p> {/* Dopasuj klucz JSON */}
                         </div>
                     ) : <p>Loading...</p>}
                 </div>
