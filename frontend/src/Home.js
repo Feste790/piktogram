@@ -36,7 +36,7 @@ const Home = () => {
 
     return (
         <div className="main-background">
-            <div+ className="main-content">
+            <div className="main-content">
                 <div className="text-display">
                     <p>{error || result || 'TEST Tekstu'}</p>
                 </div>
