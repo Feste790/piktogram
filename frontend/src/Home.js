@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import './styles.css';
 
 const Home = () => {
+    const [stats, setStats] = useState(null);
     const [result, setResult] = useState(null);
     const [error, setError] = useState(null);
 
