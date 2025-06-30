@@ -51,7 +51,7 @@ const Home = () => {
                 <div className="text-display">
                     {error ? <p>Error: {error}</p> : stats ? (
                         <div>
-                            <p>Temperatura CPU: {stats.cpu_temp || 'Brak danych'}</p> {/* Dopasuj klucz JSON */}
+                            <p>Temperatura CPU: {stats.cpu_temp || 'Brak danych'}</p>
                         </div>
                     ) : <p>Loading...</p>}
                 </div>
