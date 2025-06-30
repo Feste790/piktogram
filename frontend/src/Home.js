@@ -17,13 +17,28 @@ const Home = () => {
                 throw new Error(`B³¹d: ${response.status}`);
             }
             const data = await response.json();
-            setResult(data.test || data.result || 'Brak danych'); // Dopasowanie do ró¿nych struktur odpowiedzi
+            setResult(data.test || data.result || 'Brak danych');
             setError(null);
         } catch (err) {
             setError(err.message);
             setResult(null);
         }
     };
+
+    useEffect(() => {
+        const interval = setInterval(async () => {
+            try {
+                const response = await fetch('http://192.168.18.102:5001/info');
+                if (!response.ok) throw new Error(`B³¹d: ${response.status}`);
+                const data = await response.json();
+                setStats(data);
+                setError(null);
+            } catch (err) {
+                setError(err.message);
+            }
+        }, 2000);
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <div className="main-background">
