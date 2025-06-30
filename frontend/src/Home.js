@@ -37,7 +37,7 @@ const Home = () => {
                     <button onClick={handleRecognize}>Rozpoznaj!</button>
                 </div>
                 <div className="text-display">
-                    {error ? <p> Error: {error} </p> : stats ? (
+                    {error ? <p>Error: {error}</p> : stats ?(
                         <div>
                             <p>{stats.CPU_Temp}</p>
                         </div>
