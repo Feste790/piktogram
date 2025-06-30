@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
-import logo from './logo.png'; // Dodaj œcie¿kê do zielonego logo (jeœli masz plik)
 
 const Home = () => {
     const [stats, setStats] = useState(null);
@@ -38,9 +37,7 @@ const Home = () => {
     return (
         <div className="main-background">
             <header className="header">
-                <div className="logo">
-                    <img src={logo} alt="Piktogram Logo" />
-                </div>
+                <h1 className="header-title">Piktogram</h1>
                 <div className="header-buttons">
                     <button className="header-button">Ustawienia</button>
                     <button className="header-button">Pomoc</button>
