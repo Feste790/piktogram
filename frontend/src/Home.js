@@ -52,6 +52,9 @@ const Home = () => {
                     {error ? <p>Error: {error}</p> : stats ? (
                         <div>
                             <p>Temperatura CPU: {stats.CPU_Temp || 'Brak danych'}</p>
+                            <p>U¿ycie CPU: {stats.CPU_Usage|| 'Brak danych'}</p>
+                            <p>U¿ycie RAM: {stats.RAM_Usage || 'Brak danych'}</p>
+                            <p>U¿ycie Dysku: {stats.DISC_Usage || 'Brak danych'}</p>
                         </div>
                     ) : <p>Loading...</p>}
                 </div>
