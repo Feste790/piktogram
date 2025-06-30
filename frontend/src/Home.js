@@ -36,6 +36,13 @@ const Home = () => {
                 <div className="buttons-container">
                     <button onClick={handleRecognize}>Rozpoznaj!</button>
                 </div>
+                <div className="text-display">
+                    {error ? <p> Error: {error} </p> : stats ? (
+                        <div>
+                            <p>stats.CPU_Temp</p>
+                        </div>
+                    ) : <p> Loading... </p>}
+                </div>
             </div>
         </div>
     );
