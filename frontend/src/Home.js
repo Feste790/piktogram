@@ -40,7 +40,7 @@ const Home = () => {
         return () => clearInterval(interval);
     }, []);
 
-    return (
+return (
         <div className="main-background">
             <div className="main-content">
                 <div className="text-display">
@@ -53,11 +53,11 @@ const Home = () => {
                     <button onClick={handleRecognize}>Rozpoznaj!</button>
                 </div>
                 <div className="text-display">
-                    {error ? <p>Error: {error}</p> : stats ?(
+                    {error ? <p>Error: {error}</p> : stats ? (
                         <div>
-                            <p>{stats.CPU_Temp}</p>
+                            <p>Temperatura CPU: {stats.CPU_Temp || 'Brak danych'}</p> {/* Dopasuj klucz JSON */}
                         </div>
-                    ) : <p> Loading... </p>}
+                    ) : <p>Loading...</p>}
                 </div>
             </div>
         </div>
