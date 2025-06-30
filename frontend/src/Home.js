@@ -59,10 +59,10 @@ const Home = () => {
                     <div className="text-display">
                         {error ? <p className="error-text">Error: {error}</p> : stats ? (
                             <div className="stats-grid">
-                                <p>Temperatura CPU: {stats.CPU_Temp || 'Brak danych'}</p>
-                                <p>U¿ycie CPU: {stats.CPU_Usage || 'Brak danych'}</p>
-                                <p>U¿ycie RAM: {stats.RAM_Usage || 'Brak danych'}</p>
-                                <p>U¿ycie Dysku: {stats.DISC_Usage || 'Brak danych'}</p>
+                                <p>CPU temperature: {stats.CPU_Temp || 'Brak danych'}</p>
+                                <p>CPU usage: {stats.CPU_Usage || 'Brak danych'}</p>
+                                <p>RAM usage: {stats.RAM_Usage || 'Brak danych'}</p>
+                                <p>Disk usage: {stats.DISC_Usage || 'Brak danych'}</p>
                             </div>
                         ) : <p className="loading-text">Loading...</p>}
                     </div>
