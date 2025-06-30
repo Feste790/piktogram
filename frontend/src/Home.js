@@ -39,7 +39,7 @@ const Home = () => {
                 <div className="text-display">
                     {error ? <p> Error: {error} </p> : stats ? (
                         <div>
-                            <p>stats.CPU_Temp</p>
+                            <p>{stats.CPU_Temp}</p>
                         </div>
                     ) : <p> Loading... </p>}
                 </div>
