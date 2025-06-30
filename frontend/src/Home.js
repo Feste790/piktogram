@@ -36,12 +36,19 @@ const Home = () => {
 
     return (
         <div className="main-background">
+            <header className="header">
+                <h1>Piktogram</h1> {/* Przyk³adowy tytu³ */}
+                <div className="buttons">
+                    <button className="button">Opcja 1</button>
+                    <button className="button">Opcja 2</button>
+                </div>
+            </header>
             <div className="main-content">
                 <div className="text-display">
                     <p>{error || result || 'TEST Tekstu'}</p>
                 </div>
                 <div className="camera-window">
-                    <img src="http://192.168.18.102:5000/video" width="640" height="480" alt="Stream z kamery" />
+                    <img src="http://192.168.18.102:5000/video" alt="Stream z kamery" />
                 </div>
                 <div className="buttons-container">
                     <button onClick={handleRecognize}>Rozpoznaj!</button>
@@ -50,9 +57,9 @@ const Home = () => {
                     {error ? <p>Error: {error}</p> : stats ? (
                         <div>
                             <p>Temperatura CPU: {stats.CPU_Temp || 'Brak danych'}</p>
-                            <p>Uzycie CPU: {stats.CPU_Usage|| 'Brak danych'}</p>
-                            <p>Uzycie RAM: {stats.RAM_Usage || 'Brak danych'}</p>
-                            <p>Uzycie Dysku: {stats.DISC_Usage || 'Brak danych'}</p>
+                            <p>U¿ycie CPU: {stats.CPU_Usage || 'Brak danych'}</p>
+                            <p>U¿ycie RAM: {stats.RAM_Usage || 'Brak danych'}</p>
+                            <p>U¿ycie Dysku: {stats.DISC_Usage || 'Brak danych'}</p>
                         </div>
                     ) : <p>Loading...</p>}
                 </div>

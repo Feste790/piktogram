@@ -6,10 +6,14 @@
     padding: 10px 20px;
     color: lawngreen;
     background: linear-gradient(90deg, #626262 0%, #424242 40%, #161616 100%);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
     .header h1 {
         font-size: 40px;
+        margin: 0;
     }
 
     .header .logo {
@@ -37,6 +41,7 @@
         border: none;
         border-radius: 5px;
         cursor: pointer;
+        transition: background-color 0.3s;
     }
 
         .header .button:hover {
@@ -44,30 +49,45 @@
         }
 
 /*===--- MAIN CONTENT ---===*/
-.main-content {
-    padding: 20px;
-    min-height: calc(100vh - 60px);
+.main-background {
+    min-height: 100vh;
     background: linear-gradient(90deg, #626262 0%, #424242 40%, #161616 100%);
     color: lawngreen;
+    margin: 0;
+    padding: 0;
+}
+
+.main-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 .camera-window {
     width: 100%;
-    max-width: 600px;
-    height: 400px;
+    max-width: 640px;
+    aspect-ratio: 4 / 3; /* Zachowuje proporcje 640x480 */
     background-color: #f0f0f0;
     border: 2px solid #333;
-    margin-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-style: italic;
+    overflow: hidden;
 }
+
+    .camera-window img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
 
 .buttons-container {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 15px;
+    margin-bottom: 0;
 }
 
     .buttons-container button {
@@ -77,6 +97,8 @@
         border: none;
         border-radius: 5px;
         cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
     }
 
         .buttons-container button:hover {
@@ -85,6 +107,12 @@
 
 .text-display {
     font-size: 18px;
-    line-height: 1.5;
-    color: greenyellow; /* Zachowano ostatni kolor */
+    line-height: 1.6;
+    color: greenyellow;
+    text-align: center;
+    max-width: 640px;
 }
+
+    .text-display p {
+        margin: 5px 0;
+    }
