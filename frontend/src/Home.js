@@ -37,31 +37,35 @@ const Home = () => {
     return (
         <div className="main-background">
             <header className="header">
-                <h1>Piktogram</h1> {/* Przyk³adowy tytu³ */}
-                <div className="buttons">
-                    <button className="button">Opcja 1</button>
-                    <button className="button">Opcja 2</button>
+                <h1 className="header-title">Piktogram</h1>
+                <div className="header-buttons">
+                    <button className="header-button">Ustawienia</button>
+                    <button className="header-button">Pomoc</button>
                 </div>
             </header>
             <div className="main-content">
                 <div className="text-display">
-                    <p>{error || result || 'TEST Tekstu'}</p>
+                    <p className="result-text">{error || result || 'TEST Tekstu'}</p>
                 </div>
-                <div className="camera-window">
-                    <img src="http://192.168.18.102:5000/video" alt="Stream z kamery" />
+                <div className="camera-container">
+                    <div className="camera-window">
+                        <img src="http://192.168.18.102:5000/video" alt="Stream z kamery" />
+                    </div>
                 </div>
                 <div className="buttons-container">
-                    <button onClick={handleRecognize}>Rozpoznaj!</button>
+                    <button onClick={handleRecognize} className="action-button">Rozpoznaj!</button>
                 </div>
-                <div className="text-display">
-                    {error ? <p>Error: {error}</p> : stats ? (
-                        <div>
-                            <p>Temperatura CPU: {stats.CPU_Temp || 'Brak danych'}</p>
-                            <p>U¿ycie CPU: {stats.CPU_Usage || 'Brak danych'}</p>
-                            <p>U¿ycie RAM: {stats.RAM_Usage || 'Brak danych'}</p>
-                            <p>U¿ycie Dysku: {stats.DISC_Usage || 'Brak danych'}</p>
-                        </div>
-                    ) : <p>Loading...</p>}
+                <div className="stats-container">
+                    <div className="text-display">
+                        {error ? <p className="error-text">Error: {error}</p> : stats ? (
+                            <div className="stats-grid">
+                                <p>Temperatura CPU: {stats.CPU_Temp || 'Brak danych'}</p>
+                                <p>U¿ycie CPU: {stats.CPU_Usage || 'Brak danych'}</p>
+                                <p>U¿ycie RAM: {stats.RAM_Usage || 'Brak danych'}</p>
+                                <p>U¿ycie Dysku: {stats.DISC_Usage || 'Brak danych'}</p>
+                            </div>
+                        ) : <p className="loading-text">Loading...</p>}
+                    </div>
                 </div>
             </div>
         </div>
