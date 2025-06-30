@@ -36,11 +36,12 @@ const Home = () => {
 
     return (
         <div className="main-background">
-            <div className="main-content">
+            <div+ className="main-content">
                 <div className="text-display">
                     <p>{error || result || 'TEST Tekstu'}</p>
                 </div>
                 <div className="camera-window">
+                    <img src="http://192.168.18.102:5000/video" width="640" height="480" alt="Stream z kamery" />
                 </div>
                 <div className="buttons-container">
                     <button onClick={handleRecognize}>Rozpoznaj!</button>
